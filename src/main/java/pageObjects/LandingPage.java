@@ -13,7 +13,7 @@ public class LandingPage {
     //class constructor
     public LandingPage(WebDriver driver){
         this.driver = driver;
-        //need to add this line if using page fACTORY:
+        //need to add this line if using page Factory:
         PageFactory.initElements(driver, this);
     }
 
@@ -31,5 +31,15 @@ public class LandingPage {
 
     @FindBy(id="login")
     WebElement loginButton;
+
+    public void loginApplication(String email, String password){
+        userEmail.sendKeys(email);
+        userPassword.sendKeys(password);
+        loginButton.click();
+    }
+
+    public void goTo(){
+        driver.get("https://rahulshettyacademy.com/client/");
+    }
 
 }
